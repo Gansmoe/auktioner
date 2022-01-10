@@ -1,0 +1,18 @@
+﻿@model auktioner.ViewModels.ProductListViewModel
+
+@foreach (var product in Model.Products)
+{
+    <div>
+        <h2>Artikel: @product.Name</h2>
+        <p>ID: @product.Id</p>
+        <p>Beskrivning: @product.Description</p>
+        <p>Tillverkningsår: @product.Year</p>
+        <p>Eget ID: @product.ProductId</p>
+        <p>Inköpspris: @product.BuyPrice</p>
+        <p>Kategori: @product.Category</p>
+        <p>I lager: @product.InStock</p>
+        <p>Slutpris: @product.EndPrice</p>
+        <h6><a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary">Ändra artikel</a></h6>
+        <h6><a asp-action="ForAuctioneer" asp-route-id="@product.Id" class="btn btn-primary">Ändra lagerstatus & slutpris</a></h6>
+    </div>
+}

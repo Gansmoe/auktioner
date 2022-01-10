@@ -1,0 +1,32 @@
+﻿
+@model auktioner.ViewModels.AddCategoryViewModel
+
+
+<h1>Kategorier</h1>
+@foreach (var cat in Model.Categories)
+{
+    <div>
+        <h4>@cat.Name</h4>
+    </div>
+}
+
+
+<h1>Lägg till ny Kategori</h1>
+<form asp-action="AddCategory" method="post" class="form-horizontal" role="form">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-2 control-label"></label>
+        <div>
+            <input asp-for="Name" class ="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Lägg till kategori" />
+        </div>
+    </div>
+</form>
